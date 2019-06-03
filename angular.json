@@ -153,6 +153,41 @@
           }
         }
       }
+    },
+    "ix-angular-elements": {
+      "root": "projects/ix-angular-elements",
+      "sourceRoot": "projects/ix-angular-elements/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ix-angular-elements/tsconfig.lib.json",
+            "project": "projects/ix-angular-elements/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ix-angular-elements/src/test.ts",
+            "tsConfig": "projects/ix-angular-elements/tsconfig.spec.json",
+            "karmaConfig": "projects/ix-angular-elements/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ix-angular-elements/tsconfig.lib.json",
+              "projects/ix-angular-elements/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ix-angular-framework"
