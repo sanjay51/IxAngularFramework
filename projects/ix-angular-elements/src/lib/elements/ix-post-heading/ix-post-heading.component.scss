@@ -1,0 +1,10 @@
+@import "../../../styles.scss";
+
+.post-container {
+    background-color: $secondary-color;
+    color: gray;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: $widget-shadow;
+    margin-bottom: 20px;
+}

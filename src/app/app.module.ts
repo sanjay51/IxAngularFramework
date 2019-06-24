@@ -1,6 +1,6 @@
 import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IxAngularElementsModule, IxFormComponent, IxNoteComponent } from 'ix-angular-elements';
+import { IxAngularElementsModule, IxFormComponent, IxNoteComponent } from 'ix-angular-elements/ix-angular-elements';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
