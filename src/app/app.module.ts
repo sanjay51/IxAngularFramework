@@ -1,8 +1,9 @@
+import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { IxAngularElementsModule, IxFormComponent, NoteComponent } from 'ix-angular-elements';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 
 @NgModule({
   declarations: [
@@ -10,9 +11,17 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IxAngularElementsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    IxFormComponent,
+    NoteComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(injector: Injector) {
+  }
+}

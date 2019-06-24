@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { LOADING_GIF_SRC } from '../service/constants';
-import { CommonModule } from '@angular/common';
+import { LOADING_GIF_SRC } from '../../service/constants';
 
 @Component({
   selector: 'ix-form',
