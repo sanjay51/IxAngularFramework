@@ -22,6 +22,8 @@ import { IxAngularElementsComponent } from './ix-angular-elements.component';
     NoteComponent
   ],
   entryComponents: [
+    IxFormComponent,
+    NoteComponent
   ]
 })
 export class IxAngularElementsModule {
