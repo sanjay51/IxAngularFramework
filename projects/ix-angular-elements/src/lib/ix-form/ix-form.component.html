@@ -1,0 +1,28 @@
+<div class="container form-container" align=center>
+  <h2 class="form-heading">{{form.title}}</h2><hr/>
+  <div *ngIf="submitted && error" class="alert alert-danger" role="alert">
+    {{error}}
+  </div><br/>
+
+  <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="form-group" *ngFor="let field of form.fields">
+      <div *ngIf="!field.isDisabled">
+        <label for="{{field.name}}">{{field.label}}</label>
+        <input [type]="field.isPassword ? 'password': 'text'" type="text"
+          [formControlName]="field.name" [id]="field.name" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f[field.name].errors }" />
+        <div *ngIf="submitted && f[field.name].errors" class="invalid-feedback">
+            <div *ngIf="f[field.name].errors.required">{{field.label}} is required</div>
+            <div *ngIf="f[field.name].errors.minlength">{{field.label}} is too short</div>
+            <div *ngIf="f[field.name].errors.email">{{field.label}} format is incorrect</div>
+            <div *ngIf="f[field.name].errors.pattern">{{field.label}} is invalid. {{field.validationMessage}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button [disabled]="loading" class="btn">{{form.submitButtonLabel}}</button>
+      <img *ngIf="loading" [src]="LOADING_GIF_SRC" />
+      <a *ngIf="!loading" href="JavaScript:Void(0);" (click)="form.onCancel()">Cancel</a>
+    </div>
+  </form>
+</div>
