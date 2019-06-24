@@ -17,6 +17,7 @@ import { IxAngularElementsComponent } from './ix-angular-elements.component';
     ReactiveFormsModule,
   ],
   exports: [
+    IxAngularElementsComponent,
     IxFormComponent,
     NoteComponent
   ],
