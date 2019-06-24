@@ -1,0 +1,36 @@
+<div align="center">
+<div class="ixtutor-question-answer-block" align="left">
+  <div class="ix-question">
+  <b>Q.</b>&nbsp;<b>{{getQuestion()}}</b>
+  </div>
+  
+  <div class="ix-options">
+  <div>
+  <input id="op1" class="ix-answer-option" type="radio" (click)="evaluateOption(1)" name="option" value="1" />&nbsp;
+  <label for="op1" class="ix-answer-option" style="display: inline;">{{getOption(1)}}</label>
+  </div>
+  
+  <div>
+  <input id="op2" class="ix-answer-option" type="radio" (click)="evaluateOption(2)" name="option" value="2">&nbsp;
+  <label for="op2" class="ix-answer-option" style="display: inline;">{{getOption(2)}}</label>
+  </div>
+  
+  <div>
+  <input id="op3" class="ix-answer-option" type="radio" (click)="evaluateOption(3)" name="option" value="3">&nbsp;
+  <label for="op3" class="ix-answer-option" style="display: inline;">{{getOption(3)}}</label>
+  </div>
+  
+  <div>
+  <input id="op4" class="ix-answer-option" type="radio" (click)="evaluateOption(4)" name="option" value="4">&nbsp;
+  <label for="op4" class="ix-answer-option" style="display: inline;">{{getOption(4)}}</label>
+  </div>
+  
+  <div *ngIf="isDirty">
+  <b *ngIf="isCorrectAnswer" style="background-color: lightgreen">Correct!</b>
+  <b *ngIf="!isCorrectAnswer" style="background-color: orange">Incorrect!</b>
+  {{getAnswerExplanation()}}
+  </div>
+  </div>
+  
+  </div>
+  </div>

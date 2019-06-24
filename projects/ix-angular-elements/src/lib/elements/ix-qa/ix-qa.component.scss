@@ -1,0 +1,31 @@
+@import "../../../styles.scss";
+
+  .ixtutor-question-answer-block {
+    background-color:$secondary-color; 
+    box-shadow: $widget-shadow;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .ix-question {
+    color: $main-color;
+    background-color: white;
+    margin-left: 0px;
+    padding: 5px;
+    padding-left: 5px;
+    margin: 5px;
+    margin-top: 0px;
+    border-bottom: $main-color solid 2px;
+  }
+  
+  .ix-options {
+    padding: 10px;
+  }
+  
+  .ix-answer-option:hover {
+    cursor: pointer;
+  }
+
+  .ix-single-option-container {
+      cursor: pointer;
+  }
