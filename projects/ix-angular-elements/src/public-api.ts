@@ -3,5 +3,5 @@
  */
 
 export * from './lib/elements/ix-form/ix-form.component';
-export * from './lib/elements/note/note.component';
+export * from './lib/elements/ix-note/ix-note.component';
 export * from './lib/ix-angular-elements.module';

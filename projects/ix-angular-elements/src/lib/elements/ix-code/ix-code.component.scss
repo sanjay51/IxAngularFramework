@@ -1,0 +1,64 @@
+@import "../../../styles.scss";
+
+.code-box {
+    background-color: white;
+    font-size: 14px;
+}
+
+.code-pre {
+    font-size: 14px;
+}
+
+.code-outer-box {
+    background-color: white; 
+    border-left: solid 5px $main-color;
+    border-radius: 2px;
+    padding: 5px; 
+    padding-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    box-shadow: $widget-shadow;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.code-inner-box {
+  transition: height 1s, width 1s, padding 1s, visibility 1s, opacity 0.5s ease-out;
+  background-color: $secondary-color; 
+  padding-left: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+  border: 1px solid #cfcfcf;
+}
+
+button.blue-button {
+    color: $main-color;
+    border: 1px $main-color solid;
+    border-radius: 5px;
+    padding: 0px;
+    width: 70px;
+    height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+button.blue-button:hover {
+    border: 1px $main-color solid;
+    box-shadow: $widget-shadow;
+    background: $main-color;
+    color: white;
+}
+
+button.blue-button:active {
+    box-shadow: inset 0 2px 5px #2370FE;
+}
+
+span.code-view-changer {
+    float:right; 
+    margin-right: 5px;
+    color: $main-color;
+    cursor: pointer;
+}

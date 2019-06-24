@@ -2,10 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ix-note',
-  templateUrl: './note.component.html',
-  styleUrls: ['./note.component.scss']
+  templateUrl: './ix-note.component.html',
+  styleUrls: ['./ix-note.component.scss']
 })
-export class NoteComponent implements OnInit {
+export class IxNoteComponent implements OnInit {
   @Input() title;
   @Input() text;
 
