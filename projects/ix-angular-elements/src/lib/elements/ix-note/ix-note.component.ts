@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ix-note',
   templateUrl: './ix-note.component.html',
   styleUrls: ['./ix-note.component.scss']
 })

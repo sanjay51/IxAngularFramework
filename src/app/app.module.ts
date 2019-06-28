@@ -1,4 +1,4 @@
-import { Injector, NgModule } from '@angular/core';
+import { Injector, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IxAngularElementsModule, IxFormComponent, IxNoteComponent } from 'ix-angular-elements';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +19,10 @@ import { AppComponent } from './app.component';
   entryComponents: [
     IxFormComponent,
     IxNoteComponent
-  ]
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ],
 })
 export class AppModule {
   constructor(injector: Injector) {

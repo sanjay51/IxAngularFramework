@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Injector, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IxCodeComponent } from './elements/ix-code/ix-code.component';
 import { IxFormComponent } from './elements/ix-form/ix-form.component';
@@ -23,11 +24,6 @@ import { IxAngularElementsComponent } from './ix-angular-elements.component';
     ReactiveFormsModule,
   ],
   exports: [
-    IxFormComponent,
-    IxNoteComponent,
-    IxCodeComponent,
-    IxPostHeadingComponent,
-    IxQAComponent
   ],
   entryComponents: [
     IxFormComponent,
@@ -38,9 +34,21 @@ import { IxAngularElementsComponent } from './ix-angular-elements.component';
   ],
   schemas: [
     NO_ERRORS_SCHEMA
-],
+  ],
 })
 export class IxAngularElementsModule {
   constructor(injector: Injector) {
+    let components: Array<[string, any]> = [
+      ['ix-code', IxCodeComponent],
+      ['ix-form', IxFormComponent],
+      ['ix-note', IxNoteComponent],
+      ['ix-post-heading', IxPostHeadingComponent],
+      ['ix-qa', IxQAComponent]
+    ]
+
+    components.forEach(c => {
+      const element = createCustomElement(c[1], {injector: injector});
+      customElements.define(c[0], element);
+    });
   }
 }
