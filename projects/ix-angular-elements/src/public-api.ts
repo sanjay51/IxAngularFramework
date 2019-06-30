@@ -4,6 +4,7 @@
 
 export * from './lib/elements/ix-code/ix-code.component';
 export * from './lib/elements/ix-form/ix-form.component';
+export * from './lib/elements/ix-icon-box/IxCard';
 export * from './lib/elements/ix-note/ix-note.component';
 export * from './lib/elements/ix-post-heading/ix-post-heading.component';
 export * from './lib/elements/ix-qa/ix-qa.component';

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IxCard } from './IxCard';
 
 @Component({
   selector: 'lib-ix-icon-box',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ix-icon-box.component.scss']
 })
 export class IxIconBoxComponent implements OnInit {
+  @Input() cards: IxCard[] = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
-
 }

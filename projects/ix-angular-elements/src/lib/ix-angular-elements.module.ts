@@ -4,11 +4,11 @@ import { createCustomElement } from '@angular/elements';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IxCodeComponent } from './elements/ix-code/ix-code.component';
 import { IxFormComponent } from './elements/ix-form/ix-form.component';
+import { IxIconBoxComponent } from './elements/ix-icon-box/ix-icon-box.component';
 import { IxNoteComponent } from './elements/ix-note/ix-note.component';
 import { IxPostHeadingComponent } from './elements/ix-post-heading/ix-post-heading.component';
 import { IxQAComponent } from './elements/ix-qa/ix-qa.component';
 import { IxAngularElementsComponent } from './ix-angular-elements.component';
-import { IxIconBoxComponent } from './elements/ix-icon-box/ix-icon-box.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { IxIconBoxComponent } from './elements/ix-icon-box/ix-icon-box.component
     IxNoteComponent,
     IxCodeComponent,
     IxPostHeadingComponent,
-    IxQAComponent
+    IxQAComponent,
+    IxIconBoxComponent
   ],
   schemas: [
     NO_ERRORS_SCHEMA
@@ -45,7 +46,8 @@ export class IxAngularElementsModule {
       ['ix-form', IxFormComponent],
       ['ix-note', IxNoteComponent],
       ['ix-post-heading', IxPostHeadingComponent],
-      ['ix-qa', IxQAComponent]
+      ['ix-qa', IxQAComponent],
+      ['ix-icon-box', IxIconBoxComponent]
     ]
 
     components.forEach(c => {
