@@ -8,6 +8,7 @@ import { IxNoteComponent } from './elements/ix-note/ix-note.component';
 import { IxPostHeadingComponent } from './elements/ix-post-heading/ix-post-heading.component';
 import { IxQAComponent } from './elements/ix-qa/ix-qa.component';
 import { IxAngularElementsComponent } from './ix-angular-elements.component';
+import { IxIconBoxComponent } from './elements/ix-icon-box/ix-icon-box.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { IxAngularElementsComponent } from './ix-angular-elements.component';
     IxNoteComponent,
     IxCodeComponent,
     IxPostHeadingComponent,
-    IxQAComponent
+    IxQAComponent,
+    IxIconBoxComponent
   ],
   imports: [
     CommonModule,
