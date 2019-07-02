@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { API } from './api';
 import { Resource } from './resource';
 
-export abstract class GetAPI extends API {
+export abstract class DeleteAPI extends API {
 
     abstract getParams(): HttpParams;
     abstract getResource(): Resource;

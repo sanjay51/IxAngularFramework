@@ -6,7 +6,7 @@ import { API } from './api';
 @Injectable({
   providedIn: 'root'
 })
-export class APIInvocationService {
+export class APIService {
   constructor(private http: HttpClient, private URL: string) { }
 
   public call(api: API): Observable<any> {
