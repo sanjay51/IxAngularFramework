@@ -28,8 +28,8 @@ import { IxAngularElementsComponent } from './ix-angular-elements.component';
     ReactiveFormsModule,
   ],
   exports: [
-    IxLoginFormComponent,
-    IxFormComponent
+    IxFormComponent,
+    IxLoginFormComponent
   ],
   entryComponents: [
     IxNoteComponent,
