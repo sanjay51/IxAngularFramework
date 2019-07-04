@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { AuthenticationService, AuthStateService, InitializerService } from 'ix-angular-api';
+import { AuthStateService } from '../../../service/auth-state.service';
+import { AuthenticationService } from '../../../service/authentication.service';
+import { InitializerService } from '../../../service/initializer.service';
 
 @Component({
   selector: 'ix-login-form',

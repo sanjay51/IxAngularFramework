@@ -6,7 +6,6 @@
     "@angular/core": "^7.2.0"
   },
   "dependencies": {
-    "@clr/angular": "^2.0.1",
-    "ix-angular-api": "file:../../dist/ix-angular-api"
+    "@clr/angular": "^2.0.1"
   }
 }

@@ -25,12 +25,6 @@
       ],
       "ix-angular-elements/*": [
         "dist/ix-angular-elements/*"
-      ],
-      "ix-angular-api": [
-        "dist/ix-angular-api"
-      ],
-      "ix-angular-api/*": [
-        "dist/ix-angular-api/*"
       ]
     }
   }
