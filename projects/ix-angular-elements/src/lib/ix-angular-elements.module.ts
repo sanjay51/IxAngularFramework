@@ -8,6 +8,7 @@ import { IxIconBoxComponent } from './elements/ix-icon-box/ix-icon-box.component
 import { IxNoteComponent } from './elements/ix-note/ix-note.component';
 import { IxPostHeadingComponent } from './elements/ix-post-heading/ix-post-heading.component';
 import { IxQAComponent } from './elements/ix-qa/ix-qa.component';
+import { IxLoginFormComponent } from './elements/standard/ix-login-form/ix-login-form.component';
 import { IxAngularElementsComponent } from './ix-angular-elements.component';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { IxAngularElementsComponent } from './ix-angular-elements.component';
     IxCodeComponent,
     IxPostHeadingComponent,
     IxQAComponent,
-    IxIconBoxComponent
+    IxIconBoxComponent,
+    IxLoginFormComponent
   ],
   imports: [
     CommonModule,
@@ -26,9 +28,10 @@ import { IxAngularElementsComponent } from './ix-angular-elements.component';
     ReactiveFormsModule,
   ],
   exports: [
+    IxLoginFormComponent,
+    IxFormComponent
   ],
   entryComponents: [
-    IxFormComponent,
     IxNoteComponent,
     IxCodeComponent,
     IxPostHeadingComponent,
@@ -38,12 +41,14 @@ import { IxAngularElementsComponent } from './ix-angular-elements.component';
   schemas: [
     NO_ERRORS_SCHEMA
   ],
+  providers: [
+    {provide: 'API_BASE_URL', useValue: 'http://google.com'}
+  ],
 })
 export class IxAngularElementsModule {
   constructor(injector: Injector) {
     let components: Array<[string, any]> = [
       ['ix-code', IxCodeComponent],
-      ['ix-form', IxFormComponent],
       ['ix-note', IxNoteComponent],
       ['ix-post-heading', IxPostHeadingComponent],
       ['ix-qa', IxQAComponent],
