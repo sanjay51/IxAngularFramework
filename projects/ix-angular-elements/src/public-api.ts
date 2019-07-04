@@ -14,6 +14,7 @@ export * from './lib/elements/ix-icon-box/IxCard';
 export * from './lib/elements/ix-note/ix-note.component';
 export * from './lib/elements/ix-post-heading/ix-post-heading.component';
 export * from './lib/elements/ix-qa/ix-qa.component';
+export * from './lib/elements/standard/ix-login-form/ix-login-form.component';
 export * from './lib/ix-angular-elements.module';
 export * from './lib/service/auth-state.service';
 export * from './lib/service/authentication.service';
