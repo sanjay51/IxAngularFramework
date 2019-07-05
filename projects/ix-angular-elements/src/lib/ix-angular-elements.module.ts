@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Injector, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ClarityModule } from '../../../../node_modules/@clr/angular';
+import { ClarityModule } from '@clr/angular';
 import { IxCodeComponent } from './elements/ix-code/ix-code.component';
 import { IxFormComponent } from './elements/ix-form/ix-form.component';
 import { IxIconBoxComponent } from './elements/ix-icon-box/ix-icon-box.component';
