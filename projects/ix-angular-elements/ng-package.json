@@ -5,6 +5,8 @@
     "entryFile": "src/public-api.ts"
   },
   "whitelistedNonPeerDependencies": [
-    "@clr/angular"
+    "@clr/angular",
+    "@clr/ui",
+    "@clr/icons"
   ]
 }

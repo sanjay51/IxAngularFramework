@@ -6,9 +6,17 @@
     background-color: white;
     border-radius: 20px;
     box-shadow: 0px 0px 20px -8px black;
-    padding: 30px;
+    padding: 0px;
 }
 
 .form {
     text-align: left;
+}
+
+
+.ix-form-heading {
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('assets/laptop.jpg'); 
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px; 
+background-size: 100%;
 }

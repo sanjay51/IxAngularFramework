@@ -1,4 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
+
+<form clrForm clrLayout="vertical" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <clr-input-container>
+        <label class="clr-col-12 clr-col-md-12">Email</label>
+        <input size="40" class="clr-col-12 clr-col-lg-12" required clrInput type="text" [(ngModel)]="model" name="example" />
+        <clr-control-error>Error message that appears after focus is lost and control is invalid</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label class="clr-col-12 clr-col-md-2">Password</label>
+        <input class="clr-col-12 clr-col-md-8" clrInput type="text" [(ngModel)]="model" name="example" />
+    </clr-input-container>
+  </form>
+
+
 <ix-icon-box [cards]="cards"></ix-icon-box>
 <ix-login-form></ix-login-form>
 <router-outlet></router-outlet>

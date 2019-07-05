@@ -1,28 +1,45 @@
-<div class="container form-container" align=center>
-  <h2 class="form-heading">{{form.title}}</h2><hr/>
-  <div *ngIf="submitted && error" class="alert alert-danger" role="alert">
-    {{error}}
-  </div><br/>
+<div style="display:inline-block;">
+  <div class="container form-container">
+    <div align=center class="ix-form-heading">
+      <h2 class="form-heading" style="padding: 30px; color: white; font-weight: bolder">{{form.title}}</h2>
+    </div>
+    <div *ngIf="submitted && error" class="alert alert-danger" role="alert">
+      {{error}}
+    </div><br />
 
-  <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-    <div class="form-group" *ngFor="let field of form.fields">
-      <div *ngIf="!field.isDisabled">
-        <label for="{{field.name}}">{{field.label}}</label>
-        <input [type]="field.isPassword ? 'password': 'text'" type="text"
-          [formControlName]="field.name" [id]="field.name" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f[field.name].errors }" />
-        <div *ngIf="submitted && f[field.name].errors" class="invalid-feedback">
-            <div *ngIf="f[field.name].errors.required">{{field.label}} is required</div>
-            <div *ngIf="f[field.name].errors.minlength">{{field.label}} is too short</div>
-            <div *ngIf="f[field.name].errors.email">{{field.label}} format is incorrect</div>
-            <div *ngIf="f[field.name].errors.pattern">{{field.label}} is invalid. {{field.validationMessage}}</div>
-        </div>
+    <form style="padding: 30px" clrForm clrLayout="vertical" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <clr-input-container *ngFor="let field of form.fields">
+        <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
+        <input [type]="field.isPassword ? 'password': 'text'" type="text" [formControlName]="field.name"
+          [id]="field.name" class="form-control" size="40" class="clr-col-5 clr-col-md-12" required clrInput
+          type="text" />
+        <clr-control-error *ngIf="f[field.name].errors.required">{{field.label}} is required</clr-control-error>
+        <clr-control-error *ngIf="f[field.name].errors.minlength">{{field.label}} is too short</clr-control-error>
+        <clr-control-error *ngIf="f[field.name].errors.email">{{field.label}} format is incorrect</clr-control-error>
+        <clr-control-error *ngIf="f[field.name].errors.pattern">{{field.label}} is invalid.
+          {{field.validationMessage}}
+        </clr-control-error>
+      </clr-input-container>
+      <br /><br />
+      <div class="form-group" align=center>
+        <button [disabled]="loading" class="btn">{{form.submitButtonLabel}}</button>
+        <img *ngIf="loading" [src]="LOADING_GIF_SRC" />
+        <a *ngIf="!loading" href="JavaScript:Void(0);" (click)="form.onCancel()">Cancel</a>
       </div>
-    </div>
-    <div class="form-group">
-      <button [disabled]="loading" class="btn">{{form.submitButtonLabel}}</button>
-      <img *ngIf="loading" [src]="LOADING_GIF_SRC" />
-      <a *ngIf="!loading" href="JavaScript:Void(0);" (click)="form.onCancel()">Cancel</a>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
+<!--
+<form clrForm clrLayout="vertical" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <clr-input-container>
+    <label class="clr-col-12 clr-col-md-12">Email</label>
+    <input size="40" class="clr-col-12 clr-col-lg-12" required clrInput type="text" [(ngModel)]="model"
+      name="example" />
+    <clr-control-error>Error message that appears after focus is lost and control is invalid</clr-control-error>
+  </clr-input-container>
+  <clr-input-container>
+    <label class="clr-col-12 clr-col-md-2">Password</label>
+    <input class="clr-col-12 clr-col-md-8" clrInput type="text" [(ngModel)]="model" name="example" />
+  </clr-input-container>
+</form>
+-->

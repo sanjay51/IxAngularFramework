@@ -6,6 +6,8 @@
     "@angular/core": "^7.2.0"
   },
   "dependencies": {
-    "@clr/angular": "^2.0.1"
+    "@clr/angular": "^2.0.1",
+    "@clr/ui": "2.0.1",
+    "@clr/icons": "2.0.1"
   }
 }
