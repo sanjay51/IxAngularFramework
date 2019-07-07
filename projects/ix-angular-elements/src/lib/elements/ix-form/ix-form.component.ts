@@ -78,6 +78,7 @@ export class IxFormComponent implements OnInit {
       this.loading = true;
       this.form.onSubmit(this.f)
                 .then(response => {
+                  console.log(response);
 
                   if (response.errorType) {
                     throw new Error(response.cause.errorMessage)
@@ -85,7 +86,7 @@ export class IxFormComponent implements OnInit {
 
                   return response;
                 }).then(response => {
-                  this.form.postSubmit(response.response)
+                  this.form.postSubmit(response)
                 })
                 .catch(err => {
                   if (this.form.parseError) {

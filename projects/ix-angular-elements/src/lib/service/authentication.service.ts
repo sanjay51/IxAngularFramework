@@ -30,6 +30,6 @@ export class AuthenticationService {
   }*/
 
   public isLoggedIn() {
-    return (this.state.authState.authId != null);
+    return (this.state.authState);
   }
 }

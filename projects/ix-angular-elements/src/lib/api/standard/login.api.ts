@@ -27,6 +27,6 @@ export class LoginAPI extends PostAPI {
     }
     
     getResource(): Resource {
-        return new Resource("session");
+        return new Resource("sessions");
     }
 }

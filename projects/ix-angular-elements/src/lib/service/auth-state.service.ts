@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+const AUTH_STATE: string = "AUTH_STATE";
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthStateService {
-  public authState: AuthenticationState = new AuthenticationState();
-  public entityMetadataMap = {};
+  public authState: any;
 
   constructor(private router: Router) { }
 
@@ -29,68 +30,23 @@ export class AuthStateService {
   }
 
   public logout() {
-    this.authState = new AuthenticationState();
+    this.resetAuthState(null);
     localStorage.clear();
   }
 
-  public populateAuthState(user: any, authId: string) {
-    let authState = new AuthenticationState();
-    authState.authId = authId;
-    authState.userId = user.userId;
-    authState.name = user.name;
-    authState.email = user.email;
-    authState.accessLevel = user.accessLevel;
-    authState.accountStatus = user.accountStatus;
-
+  public resetAuthState(authState: any) {
     this.authState = authState;
-    this.saveAuthStateInLocalStorage();
-  }
-
-  private saveAuthStateInLocalStorage() {
-    localStorage.setItem("authState.authId", this.authState.authId);
-    localStorage.setItem("authState.userId", this.authState.userId);
-    localStorage.setItem("authState.name", this.authState.name);
-    localStorage.setItem("authState.email", this.authState.email);
-    localStorage.setItem("authState.accessLevel", this.authState.accessLevel);
-    localStorage.setItem("authState.accountStatus", this.authState.accountStatus);
+    localStorage.setItem(AUTH_STATE, this.authState);
   }
 
   public tryLoadAuthStateFromLocalStorage(): boolean {
-    let authId = localStorage.getItem("authState.authId")
+    let authState = localStorage.getItem(AUTH_STATE)
 
-    if (authId) {
-      this.authState = new AuthenticationState();
-      this.authState.authId = localStorage.getItem("authState.authId");
-      this.authState.userId = localStorage.getItem("authState.userId");
-      this.authState.name = localStorage.getItem("authState.name");
-      this.authState.email = localStorage.getItem("authState.email");
-      this.authState.accessLevel = localStorage.getItem("authState.accessLevel");
-      this.authState.accountStatus = localStorage.getItem("authState.accountStatus");
-
+    if (authState) {
+      this.authState = authState;
       return true;
     }
 
     return false;
-  }
-}
-
-export class AuthenticationState {
-  authId: string;
-  userId: string;
-  name: string;
-  email: string;
-  accessLevel: string;
-  accountStatus: string;
-
-  isAdmin(): boolean {
-    return this.accessLevel == "ADMIN";
-  }
-
-  isUserManager(): boolean {
-    return this.accessLevel == "USER_MANAGER";
-  }
-
-  isUserManagerOrAdmin(): boolean {
-    return this.isAdmin() || this.isUserManager();
   }
 }

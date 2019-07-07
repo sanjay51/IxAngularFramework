@@ -49,7 +49,7 @@ export class IxLoginFormComponent implements OnInit {
     },
 
     postSubmit: (response) => {
-      this.initializer.initializeAfterLogin(response.user, response.authId);
+      this.initializer.initializeAfterLogin(response, response.authId);
       this.state.navigateTo(this.successPath);
     },
 

@@ -11,12 +11,12 @@
       <clr-input-container *ngFor="let field of form.fields">
         <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
         <input [type]="field.isPassword ? 'password': 'text'" type="text" [formControlName]="field.name"
-          [id]="field.name" class="form-control" size="40" class="clr-col-5 clr-col-md-12" required clrInput
+          [id]="field.name" class="form-control" size="40" class="clr-col-5 clr-col-md-12" clrInput
           type="text" />
-        <clr-control-error *ngIf="f[field.name].errors.required">{{field.label}} is required</clr-control-error>
-        <clr-control-error *ngIf="f[field.name].errors.minlength">{{field.label}} is too short</clr-control-error>
-        <clr-control-error *ngIf="f[field.name].errors.email">{{field.label}} format is incorrect</clr-control-error>
-        <clr-control-error *ngIf="f[field.name].errors.pattern">{{field.label}} is invalid.
+        <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required</clr-control-error>
+        <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.minlength">{{field.label}} is too short</clr-control-error>
+        <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.email">{{field.label}} format is incorrect</clr-control-error>
+        <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.pattern">{{field.label}} is invalid.
           {{field.validationMessage}}
         </clr-control-error>
       </clr-input-container>

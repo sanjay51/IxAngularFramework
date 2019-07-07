@@ -17,7 +17,7 @@ export class InitializerService {
     }
   }
 
-  public initializeAfterLogin(user: any, authId: string) {
-    this.authState.populateAuthState(user, authId)
+  public initializeAfterLogin(authState: any, authId: string) {
+    this.authState.resetAuthState(authState);
   }
 }
