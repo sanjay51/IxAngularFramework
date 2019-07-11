@@ -21,6 +21,10 @@ export class AuthenticationService {
     return this.apiService.call(api).toPromise();
   }
 
+  public logout() {
+    this.state.logout();
+  }
+
   /*
   public signup(signupState: SignupState): Promise<any> {
     this.isSigningUp = true;

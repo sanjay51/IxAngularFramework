@@ -8,6 +8,7 @@ export * from './lib/api/get-api';
 export * from './lib/api/patch-api';
 export * from './lib/api/post-api';
 export * from './lib/api/put-api';
+export * from './lib/api/resource';
 export * from './lib/elements/ix-code/ix-code.component';
 export * from './lib/elements/ix-form/ix-form.component';
 export * from './lib/elements/ix-icon-box/IxCard';
@@ -20,4 +21,3 @@ export * from './lib/service/auth-state.service';
 export * from './lib/service/authentication.service';
 export * from './lib/service/initializer.service';
 export * from './lib/service/logging.service';
-

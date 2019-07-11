@@ -31,7 +31,6 @@ export class AuthStateService {
 
   public logout() {
     this.resetAuthState(null);
-    localStorage.clear();
   }
 
   public resetAuthState(authState: any) {
