@@ -12,12 +12,19 @@ export class Flow {
         let step = this.initialStep;
         let result = this.initialStep.execute(this.state);
 
-        while(result != "FINISHED") {
+        while(result != "finished") {
             // determine next step
+            if ((! this.stepMap[step.id]) || (! this.stepMap[step.id][result])) {
+                console.error("Flow did not finish in FINISHED state or no next step for step: " + step.id + "; result:" + result) ;
+                break;
+            }
+
             step = this.stepMap[step.id][result];
 
             // execute next step
+            console.log("Executing step: " + step.id + "; with state: " + JSON.stringify(this.state));
             result = step.execute(this.state);
+            console.log("Result: " + result);
         }
     }
 
