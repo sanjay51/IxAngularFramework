@@ -35,16 +35,23 @@ export class AuthStateService {
 
   public resetAuthState(authState: any) {
     this.authState = authState;
-    localStorage.setItem(AUTH_STATE, this.authState);
+    localStorage.setItem(AUTH_STATE, JSON.stringify(this.authState));
+  }
+
+  public getAuthStateAttribute(attribute: string): string {
+    return this.authState[attribute]
   }
 
   public tryLoadAuthStateFromLocalStorage(): boolean {
-    let authState = localStorage.getItem(AUTH_STATE)
+    let authState = JSON.parse(localStorage.getItem(AUTH_STATE));
 
+    console.log(authState);
+    
     if (authState) {
       this.authState = authState;
       return true;
     }
+
 
     return false;
   }
