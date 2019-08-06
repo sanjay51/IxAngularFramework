@@ -39,6 +39,7 @@ export class AuthStateService {
   }
 
   public getAuthStateAttribute(attribute: string): string {
+    if (! this.authState) return null;
     return this.authState[attribute]
   }
 

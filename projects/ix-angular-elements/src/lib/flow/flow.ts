@@ -24,7 +24,7 @@ export class Flow {
             // execute next step
             console.log("Executing step: " + step.id + "; with state: " + JSON.stringify(this.state));
             result = step.execute(this.state);
-            console.log("Result: " + result);
+            console.log("Result: " + result + "; state: " + JSON.stringify(this.state));
         }
     }
 
@@ -57,5 +57,23 @@ export class State {
 
     get(key: string): string {
         return this.state[key];
+    }
+}
+
+export class FinishedStep extends Step {
+    private constructor() {
+        super("finished");
+    }
+
+    public static get(): FinishedStep {
+        return new FinishedStep();
+    }
+
+    init(): void {
+        // do nothing
+    }    
+    
+    execute(state: State): string {
+        return "finished";
     }
 }
