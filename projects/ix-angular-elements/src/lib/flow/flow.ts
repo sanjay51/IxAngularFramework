@@ -1,3 +1,4 @@
+
 export class Flow {
     private state: State;
     private initialStep: Step;
@@ -8,9 +9,9 @@ export class Flow {
         this.state = initialState;
     }
 
-    public invoke() {
+    public async invoke() {
         let step = this.initialStep;
-        let result = this.initialStep.execute(this.state);
+        let result: string = await this.initialStep.execute(this.state);
 
         while(result != "finished") {
             // determine next step
@@ -23,7 +24,7 @@ export class Flow {
 
             // execute next step
             console.log("Executing step: " + step.id + "; with state: " + JSON.stringify(this.state));
-            result = step.execute(this.state);
+            result = await step.execute(this.state);
             console.log("Result: " + result + "; state: " + JSON.stringify(this.state));
         }
     }
@@ -45,7 +46,7 @@ export abstract class Step {
     }
 
     abstract init(): void;
-    abstract execute(state: State): string; // returns "result"
+    abstract async execute(state: State): Promise<string>; // returns "result"
 }
 
 export class State {
@@ -71,9 +72,9 @@ export class FinishedStep extends Step {
 
     init(): void {
         // do nothing
-    }    
+    }
     
-    execute(state: State): string {
+    async execute(state: State): Promise<string> {
         return "finished";
     }
 }
