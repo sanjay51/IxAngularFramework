@@ -10,7 +10,7 @@ export class AuthenticationService {
   public isLoggingIn: boolean = false;
   public isSigningUp: boolean = false;
 
-  constructor(private apiService: APIService, private state: AuthStateService) {
+  constructor(private apiService: APIService, public state: AuthStateService) {
     this.state.tryLoadAuthStateFromLocalStorage();
    }
 
