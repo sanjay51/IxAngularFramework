@@ -25,7 +25,7 @@ export class AuthStateService {
     this.navigate(to, null);
   }
 
-  public navidateWithParams(to: string, queryParams: any) {
+  public navigateWithParams(to: string, queryParams: any) {
     this.router.navigate(['/' + to], {queryParams: queryParams});
   }
 
