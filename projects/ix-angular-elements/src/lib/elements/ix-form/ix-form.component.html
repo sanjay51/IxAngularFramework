@@ -8,18 +8,44 @@
     </div><br />
 
     <form style="padding: 30px" clrForm clrLayout="vertical" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-      <clr-input-container *ngFor="let field of form.fields">
-        <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
-        <input [type]="field.isPassword ? 'password': 'text'" type="text" [formControlName]="field.name"
-          [id]="field.name" class="form-control" size="40" class="clr-col-5 clr-col-md-12" clrInput
-          type="text" />
-        <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required</clr-control-error>
-        <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.minlength">{{field.label}} is too short</clr-control-error>
-        <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.email">{{field.label}} format is incorrect</clr-control-error>
-        <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.pattern">{{field.label}} is invalid.
-          {{field.validationMessage}}
-        </clr-control-error>
-      </clr-input-container>
+      <span *ngFor="let field of form.fields">
+        <clr-textarea-container *ngIf="field.type == 'textarea'">
+          <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
+          <textarea style="width: 100%" class="clr-col-5 clr-col-md-12" clrTextarea [formControlName]="field.name"
+            [id]="field.name"></textarea>
+
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required
+          </clr-control-error>
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.minlength">{{field.label}} is too short
+          </clr-control-error>
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.email">{{field.label}} format is
+            incorrect</clr-control-error>
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.pattern">{{field.label}} is invalid.
+            {{field.validationMessage}}
+          </clr-control-error>
+        </clr-textarea-container>
+
+        <clr-input-container *ngIf="!field.type || field.type == 'text' || field.type == 'password'">
+          <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
+          <input *ngIf="!field.type || field.type == 'input' || field.type == 'password'"
+            [type]="field.type ? field.type : 'text'" [formControlName]="field.name" [id]="field.name"
+            class="form-control" size="40" class="clr-col-5 clr-col-md-12" clrInput />
+
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required
+          </clr-control-error>
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.minlength">{{field.label}} is too short
+          </clr-control-error>
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.email">{{field.label}} format is
+            incorrect</clr-control-error>
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.pattern">{{field.label}} is invalid.
+            {{field.validationMessage}}
+          </clr-control-error>
+        </clr-input-container>
+      </span>
+
+
+
+
       <br /><br />
       <div class="form-group" align=center>
         <button [disabled]="loading" class="btn">{{form.submitButtonLabel}}</button>
@@ -29,17 +55,3 @@
     </form>
   </div>
 </div>
-<!--
-<form clrForm clrLayout="vertical" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-  <clr-input-container>
-    <label class="clr-col-12 clr-col-md-12">Email</label>
-    <input size="40" class="clr-col-12 clr-col-lg-12" required clrInput type="text" [(ngModel)]="model"
-      name="example" />
-    <clr-control-error>Error message that appears after focus is lost and control is invalid</clr-control-error>
-  </clr-input-container>
-  <clr-input-container>
-    <label class="clr-col-12 clr-col-md-2">Password</label>
-    <input class="clr-col-12 clr-col-md-8" clrInput type="text" [(ngModel)]="model" name="example" />
-  </clr-input-container>
-</form>
--->

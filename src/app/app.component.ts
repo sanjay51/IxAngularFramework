@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { IxCard } from 'ix-angular-elements';
 
 @Component({
@@ -18,5 +19,52 @@ export class AppComponent {
       new IxCard("line-chart", "ANALYTICS", "Monthly analysis and performance reports. Sales consulting and best practices online.", "link", "lightgreen", "black"),
       new IxCard("bullseye", "PROMOTIONS", "Pricing strategies. Seasonality. Discounts. Bundles.", "link", "lightcoral", "black"),
     ]
+  }
+  form = {
+    fields: [
+      {
+        name: "title",
+        label: "Title*",
+        validators: [Validators.required, Validators.minLength(6)],
+        defaultValue: '',
+      },
+      {
+        name: "password",
+        label: "Password*",
+        type: "password",
+        validators: [Validators.required, Validators.minLength(6)],
+        defaultValue: '',
+      },
+      {
+        name: "details",
+        type: "textarea",
+        label: "Details",
+        validators: [],
+        defaultValue: '',
+      },
+      {
+        name: "email",
+        label: "Your email*",
+        validators: [Validators.required, Validators.email],
+        defaultValue: '',
+      }
+    ],
+
+    title: "Request a feature",
+
+    submitButtonLabel: "Submit",
+
+    onSubmit: (fields): Promise<any> => {
+      console.log(fields);
+      return null;
+    },
+
+    postSubmit: (response) => {
+      
+    },
+
+    onCancel: () => {
+      
+    }
   }
 }
