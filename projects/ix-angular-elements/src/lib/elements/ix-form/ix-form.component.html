@@ -1,7 +1,7 @@
 <div style="display:inline-block;">
-  <div class="container form-container">
+  <div class="container form-container" [ngStyle]="getContainerStyle()">
     <div align=center class="ix-form-heading">
-      <h2 class="form-heading" style="padding: 30px; color: white; font-weight: bolder">{{form.title}}</h2>
+      <h2 class="form-heading" [ngStyle]="getHeadingStyle()">{{form.title}}</h2>
     </div>
     <div *ngIf="submitted && error" class="alert alert-danger" role="alert">
       {{error}}

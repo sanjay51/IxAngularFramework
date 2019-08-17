@@ -100,4 +100,20 @@ export class IxFormComponent implements OnInit {
                });
   }
 
+  getHeadingStyle() {
+    if(this.form.heading && this.form.heading.style) {
+      return this.form.heading.style
+    }
+
+    return { 'padding': '30px', 'color': 'white', 'font-weight': 'bolder'};
+  }
+
+  getContainerStyle() {
+    if(this.form.heading && this.form.container.style) {
+      return this.form.container.style
+    }
+
+    return {};
+  }
+
 }
