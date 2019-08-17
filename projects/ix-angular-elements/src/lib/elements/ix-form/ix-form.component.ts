@@ -116,4 +116,24 @@ export class IxFormComponent implements OnInit {
     return {};
   }
 
+  imgUrl = "assets/star.png";
+  preview(files) {
+    console.log(files);
+    if (files.length === 0)
+      return;
+ 
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      console.log("Only images are supported.");
+      return;
+    }
+ 
+    var reader = new FileReader();
+    //this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgUrl = reader.result.toString(); 
+    }
+  }
+
 }

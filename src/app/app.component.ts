@@ -47,6 +47,13 @@ export class AppComponent {
         label: "Your email*",
         validators: [Validators.required, Validators.email],
         defaultValue: '',
+      },
+      {
+        name: "image",
+        label: "Your image*",
+        type: "image",
+        validators: [],
+        defaultValue: '',
       }
     ],
 

@@ -27,8 +27,7 @@
 
         <clr-input-container *ngIf="!field.type || field.type == 'text' || field.type == 'password'">
           <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
-          <input *ngIf="!field.type || field.type == 'input' || field.type == 'password'"
-            [type]="field.type ? field.type : 'text'" [formControlName]="field.name" [id]="field.name"
+          <input [type]="field.type ? field.type : 'text'" [formControlName]="field.name" [id]="field.name"
             class="form-control" size="40" class="clr-col-5 clr-col-md-12" clrInput />
 
           <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required
@@ -41,6 +40,28 @@
             {{field.validationMessage}}
           </clr-control-error>
         </clr-input-container>
+
+        <clr-control-container *ngIf="field.type == 'image'">
+          <br />
+          <b><label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label></b>
+          <div class="clr-row">
+            <div class="clr-col-2">
+              <img [src]="imgUrl" style="width:50px; height: 50px;" />
+            </div>
+            <div class="clr-col-8">
+              <input [formControlName]="field.name" type="file" accept='image/*' (change)="preview($event.target.files)" />
+            </div>
+          </div>
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required
+          </clr-control-error>
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.minlength">{{field.label}} is too short
+          </clr-control-error>
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.email">{{field.label}} format is
+            incorrect</clr-control-error>
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.pattern">{{field.label}} is invalid.
+            {{field.validationMessage}}
+          </clr-control-error>
+        </clr-control-container>
       </span>
 
 
