@@ -54,6 +54,14 @@ export class AppComponent {
         type: "image",
         validators: [],
         defaultValue: '',
+      },
+      {
+        name: "category",
+        label: "Category*",
+        type: "select",
+        options: ["sanjay", "verma", "some big option"],
+        validators: [],
+        defaultValue: 'sanjay',
       }
     ],
 

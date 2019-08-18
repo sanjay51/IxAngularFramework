@@ -41,6 +41,16 @@
           </clr-control-error>
         </clr-input-container>
 
+        <clr-select-container *ngIf="field.type == 'select'">
+          <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
+          <select clrSelect [formControlName]="field.name" [id]="field.name" class="clr-col-5 clr-col-md-12" [value]="field.defaultValue">
+            <option *ngFor="let option of field.options" [value]="option">{{option}}</option>
+          </select>
+
+          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required
+          </clr-control-error>
+        </clr-select-container>
+
         <clr-control-container *ngIf="field.type == 'image'">
           <br />
           <b><label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label></b>
@@ -49,7 +59,8 @@
               <img [src]="imgUrl" style="width:50px; height: 50px;" />
             </div>
             <div class="clr-col-8">
-              <input [formControlName]="field.name" type="file" accept='image/*' (change)="preview($event.target.files)" />
+              <input [formControlName]="field.name" type="file" accept='image/*'
+                (change)="preview($event.target.files)" />
             </div>
           </div>
           <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required
