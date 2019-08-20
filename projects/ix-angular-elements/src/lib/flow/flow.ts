@@ -23,9 +23,9 @@ export class Flow {
             step = this.stepMap[step.id][result];
 
             // execute next step
-            console.log("Executing step: " + step.id + "; with state: " + JSON.stringify(this.state));
+            console.log("Executing step: " + step.id + "; with state: " + JSON.stringify(this.state).substring(0, 20));
             result = await step.execute(this.state);
-            console.log("Result: " + result + "; state: " + JSON.stringify(this.state));
+            console.log("Result: " + result + "; state: " + JSON.stringify(this.state).substring(0, 20));
         }
     }
 
