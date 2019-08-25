@@ -45,8 +45,6 @@ export class AuthStateService {
 
   public tryLoadAuthStateFromLocalStorage(): boolean {
     let authState = JSON.parse(localStorage.getItem(AUTH_STATE));
-
-    console.log(authState);
     
     if (authState) {
       this.authState = authState;

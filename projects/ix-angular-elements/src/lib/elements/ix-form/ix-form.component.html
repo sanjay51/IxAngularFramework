@@ -7,9 +7,16 @@
       {{error}}
     </div><br />
 
+    <span class="ui-float-label">
+      <input id="float-input" type="text" size="30" pInputText>
+      <label for="float-input">Username</label>
+    </span>
+
     <form style="padding: 30px" clrForm clrLayout="vertical" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
       <span *ngFor="let field of form.fields">
+
         <clr-textarea-container *ngIf="field.type == 'textarea'">
+
           <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
           <textarea style="width: 100%" class="clr-col-5 clr-col-md-12" clrTextarea [formControlName]="field.name"
             [id]="field.name"></textarea>
@@ -43,7 +50,8 @@
 
         <clr-select-container *ngIf="field.type == 'select'">
           <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
-          <select clrSelect [formControlName]="field.name" [id]="field.name" class="clr-col-5 clr-col-md-12" [value]="field.defaultValue">
+          <select clrSelect [formControlName]="field.name" [id]="field.name" class="clr-col-5 clr-col-md-12"
+            [value]="field.defaultValue">
             <option *ngFor="let option of field.options" [value]="option">{{option}}</option>
           </select>
 

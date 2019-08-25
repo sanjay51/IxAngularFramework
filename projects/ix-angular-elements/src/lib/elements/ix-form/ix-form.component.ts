@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 import { LOADING_GIF_SRC } from '../../constants';
 
 @Component({
@@ -14,6 +15,7 @@ export class IxFormComponent implements OnInit {
   error: string;
   returnUrl: string;
   LOADING_GIF_SRC: string = LOADING_GIF_SRC;
+  InputTextModule = InputTextModule;
   
   @Input() form: any;
 
