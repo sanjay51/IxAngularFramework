@@ -1,97 +1,44 @@
-<div style="display:inline-block;">
-  <div class="container form-container" [ngStyle]="getContainerStyle()">
-    <div align=center class="ix-form-heading">
-      <h2 class="form-heading" [ngStyle]="getHeadingStyle()">{{form.title}}</h2>
-    </div>
-    <div *ngIf="submitted && error" class="alert alert-danger" role="alert">
-      {{error}}
-    </div><br />
-
-    <span class="ui-float-label">
-      <input id="float-input" type="text" size="30" pInputText>
-      <label for="float-input">Username</label>
-    </span>
-
-    <form style="padding: 30px" clrForm clrLayout="vertical" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-      <span *ngFor="let field of form.fields">
-
-        <clr-textarea-container *ngIf="field.type == 'textarea'">
-
-          <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
-          <textarea style="width: 100%" class="clr-col-5 clr-col-md-12" clrTextarea [formControlName]="field.name"
-            [id]="field.name"></textarea>
-
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required
-          </clr-control-error>
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.minlength">{{field.label}} is too short
-          </clr-control-error>
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.email">{{field.label}} format is
-            incorrect</clr-control-error>
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.pattern">{{field.label}} is invalid.
-            {{field.validationMessage}}
-          </clr-control-error>
-        </clr-textarea-container>
-
-        <clr-input-container *ngIf="!field.type || field.type == 'text' || field.type == 'password'">
-          <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
-          <input [type]="field.type ? field.type : 'text'" [formControlName]="field.name" [id]="field.name"
-            class="form-control" size="40" class="clr-col-5 clr-col-md-12" clrInput />
-
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required
-          </clr-control-error>
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.minlength">{{field.label}} is too short
-          </clr-control-error>
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.email">{{field.label}} format is
-            incorrect</clr-control-error>
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.pattern">{{field.label}} is invalid.
-            {{field.validationMessage}}
-          </clr-control-error>
-        </clr-input-container>
-
-        <clr-select-container *ngIf="field.type == 'select'">
-          <label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label>
-          <select clrSelect [formControlName]="field.name" [id]="field.name" class="clr-col-5 clr-col-md-12"
-            [value]="field.defaultValue">
-            <option *ngFor="let option of field.options" [value]="option">{{option}}</option>
-          </select>
-
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required
-          </clr-control-error>
-        </clr-select-container>
-
-        <clr-control-container *ngIf="field.type == 'image'">
-          <br />
-          <b><label for="{{field.name}}" class="clr-col-5 clr-col-md-12">{{field.label}}</label></b>
-          <div class="clr-row">
-            <div class="clr-col-2">
-              <img [src]="imgUrl" style="width:50px; height: 50px;" />
-            </div>
-            <div class="clr-col-8">
-              <input [formControlName]="field.name" type="file" accept='image/*'
-                (change)="preview($event.target.files)" />
-            </div>
-          </div>
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required
-          </clr-control-error>
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.minlength">{{field.label}} is too short
-          </clr-control-error>
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.email">{{field.label}} format is
-            incorrect</clr-control-error>
-          <clr-control-error *ngIf="f[field.name].errors && f[field.name].errors.pattern">{{field.label}} is invalid.
-            {{field.validationMessage}}
-          </clr-control-error>
-        </clr-control-container>
-      </span>
-
-
-
-
-      <br /><br />
-      <div class="form-group" align=center>
-        <button [disabled]="loading" class="btn">{{form.submitButtonLabel}}</button>
-        <img *ngIf="loading" [src]="LOADING_GIF_SRC" />
-        <a *ngIf="!loading" href="JavaScript:Void(0);" (click)="form.onCancel()">Cancel</a>
+<form [formGroup]="formGroup" align=center (ngSubmit)="onSubmit()">
+    <ul class="form-style-1">
+      <div class="form-style-2-heading">{{form.title}}</div>
+      <div *ngIf="submitted && error" class="alert alert-danger" role="alert">
+        {{error}}
       </div>
-    </form>
-  </div>
-</div>
+  
+      <li *ngFor="let field of form.fields">
+        <mat-form-field style="width: 80%">
+          <label><b>{{field.label}}<br/><br/></b></label>
+          <input *ngIf="!field.type || field.type == 'text'" matInput [name]="field.name" [id]="field.name" size="40"
+            [formControlName]="field.name" />
+  
+          <input *ngIf="field.type == 'password'" matInput [name]="field.name" [id]="field.name" type="password" size="40"
+            [formControlName]="field.name" />
+  
+          <textarea *ngIf="field.type == 'textarea'" cdkTextareaAutosize matInput cdkAutosizeMinRows="1"
+            [name]="field.name" [id]="field.name" [formControlName]="field.name"></textarea>
+  
+          <mat-select *ngIf="field.type == 'select'" [id]="field.name" [value]="field.defaultValue"
+            [formControlName]="field.name">
+            <mat-option *ngFor="let option of field.options" [value]="option">{{option}}</mat-option>
+          </mat-select>
+  
+          <mat-error *ngIf="f[field.name].errors && f[field.name].errors.required">{{field.label}} is required
+          </mat-error>
+          <mat-error *ngIf="f[field.name].errors && f[field.name].errors.minlength">{{field.label}} is too short
+          </mat-error>
+          <mat-error *ngIf="f[field.name].errors && f[field.name].errors.email">{{field.label}} format is
+            incorrect</mat-error>
+          <mat-error *ngIf="f[field.name].errors && f[field.name].errors.pattern">{{field.label}} is invalid.
+            {{field.validationMessage}}
+          </mat-error>
+        </mat-form-field>
+      </li>
+  
+      <li>
+        <button mat-flat-button color="primary">{{form.submitButtonLabel}}</button>&nbsp;&nbsp;
+        <img *ngIf="loading" [src]="LOADING_GIF_SRC" />
+  
+        <a *ngIf="!loading" href="JavaScript:Void(0);" (click)="form.onCancel()">Cancel</a>
+      </li>
+    </ul>
+  </form>

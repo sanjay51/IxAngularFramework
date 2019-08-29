@@ -10,6 +10,12 @@ import { IxPostHeadingComponent } from './elements/ix-post-heading/ix-post-headi
 import { IxQAComponent } from './elements/ix-qa/ix-qa.component';
 import { IxLoginFormComponent } from './elements/standard/ix-login-form/ix-login-form.component';
 import { IxAngularElementsComponent } from './ix-angular-elements.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,13 @@ import { IxAngularElementsComponent } from './ix-angular-elements.component';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule, MatSelectModule, MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     IxFormComponent,

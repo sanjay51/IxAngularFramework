@@ -15,8 +15,32 @@
 
 
 .ix-form-heading {
-    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('assets/laptop.jpg'); 
     border-top-left-radius: 20px;
     border-top-right-radius: 20px; 
     background-size: 100%;
+}
+
+// other
+.form-style-2-heading{
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 18px;
+    padding-bottom: 3px;
+}
+
+.form-style-1 {
+    margin:10px auto;
+    max-width: 400px;
+    padding: 20px 12px 10px 20px;
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    padding:30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px -8px black;
+}
+
+.form-style-1 li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
 }
