@@ -49,20 +49,21 @@ export class AppComponent {
         defaultValue: '',
       },
       {
-        name: "image",
-        label: "Your image*",
-        type: "image",
-        validators: [],
-        defaultValue: '',
-      },
-      {
         name: "category",
         label: "Category*",
         type: "select",
         options: ["sanjay", "verma", "some big option"],
         validators: [],
         defaultValue: 'sanjay',
-      }
+      },
+      /*
+      {
+        name: "image",
+        label: "Your image*",
+        type: "image",
+        validators: [],
+        defaultValue: '',
+      }, */
     ],
 
     title: "Request a feature",
